@@ -105,6 +105,8 @@ if [[ "$OSVERSIONMAJOR" -ge 9 && "$OSVERSIONMAJOR" -le 16 ]]; then
 	# Checks if computer meets pre-requisites for Big Sur
 	if [[ "$MODELNAME" == "iMac" && "$MODELVERSION" -ge 14 && "$MINORMODELVERSION" -ge 4 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
 		COMPATIBILITY="True"
+	elif [[ "$MODELNAME" == "iMac" && "$MODELVERSION" -ge 15 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
+		COMPATIBILITY="True"
 	elif [[ "$MODELNAME" == "iMacPro" && "$MODELVERSION" -ge 1 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
 		COMPATIBILITY="True"
 	elif [[ "$MODELNAME" == "Macmini" && "$MODELVERSION" -ge 7 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
