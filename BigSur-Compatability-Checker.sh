@@ -80,10 +80,10 @@ COMPATIBILITY="False"
 #########################################################################################
 
 # Checks minimum version of the OS before upgrade (10.9.0)
-OSVERSIONMAJOR=$(sw_vers -productVersion | awk -F"." '{ print $2 }')
+OSVERSIONMAJOR=$(sw_vers -buildVersion | cut -c 1-2)
 
 # Checks if computer meets pre-requisites for Big Sur
-if [[ "$OSVERSIONMAJOR" -ge 9 && "$OSVERSIONMAJOR" -le 16 ]]; then
+if [[ "$OSVERSIONMAJOR" -ge 13 && "$OSVERSIONMAJOR" -le 19 ]]; then
 
 	# Transform GB into Bytes
 	GIGABYTES=$((1024 * 1024 * 1024))
