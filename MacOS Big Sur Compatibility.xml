@@ -68,9 +68,11 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #&#13;
 &#13;
 &#13;
-# Minimum RAM and Disk Space required (4GB and 18.5GB default. Note that REQUIREDMINIMUMSPACE must be set to an integer)&#13;
+# Minimum RAM and Disk Space required (4GB and 45GB default. Note that REQUIREDMINIMUMSPACE must be set to an integer)&#13;
+# According to https://support.apple.com/en-us/HT211238 the minimum space requirement for Big Sur is 33.5GB if you're coming from Catalina, it can go up to 44.5GB if coming from an older version&#13;
 REQUIREDMINIMUMRAM=4&#13;
-REQUIREDMINIMUMSPACE=19&#13;
+REQUIREDMINIMUMSPACE=45&#13;
+&#13;
 &#13;
 #########################################################################################&#13;
 ############### DO NOT CHANGE UNLESS NEEDED&#13;
