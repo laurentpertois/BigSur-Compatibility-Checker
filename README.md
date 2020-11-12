@@ -5,7 +5,7 @@ This script was designed to be used as an Extension Attribute on Jamf Pro server
 ## General Requirements:
   - OS X 10.9.0 or later (It seems, as of the day I write this Apple has not yet made recommendations, this page and the script will be adapted if necessary when the information will become public)
   - 4GB of memory (It seems, as of the day I write this Apple has not yet made recommendations, this page and the script will be adapted if necessary when the information will become public)
-  - 45GB of available storage, the required storage is different when upgrading from Catalina (33,5GB) or from older versions (44,5GB)
+  - 60GB of available storage, the required storage is different when upgrading from Catalina (33,5GB) or from older versions (44,5GB) and accounts for the size of the installer (almost 13GB)
 
 These last 2 requirements can be modified in the first 2 variables (`MINIMUMRAM` and `MINIMUMSPACE`).
   - REQUIREDMINIMUMRAM: minimum RAM required, in GB
