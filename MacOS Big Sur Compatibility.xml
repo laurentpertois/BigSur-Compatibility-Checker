@@ -46,7 +46,9 @@
 # These last 2 requirements can be modified in the first 2 variables (MINIMUMRAM&#13;
 # and MINIMUMSPACE).&#13;
 # 	- REQUIREDMINIMUMRAM: minimum RAM required, in GB&#13;
-# 	- REQUIREDMINIMUMSPACE: minimum disk space available, in GB&#13;
+# 	- REQUIREDMINIMUMSPACE: minimum disk space available, in GB. Big Sur has different&#13;
+#							requirements depending on the OS from which you update&#13;
+#							Adjust to your needs, lines 79 (Catalina) or 82 (pre-Catalina) &#13;
 #&#13;
 #&#13;
 # Mac Hardware Requirements and equivalent as minimum Model Identifier&#13;
@@ -64,16 +66,25 @@
 # Written by: Laurent Pertois | Senior Professional Services Engineer | Jamf&#13;
 #&#13;
 # Created On: 2020-07-23&#13;
+# Modified ON: 2020-11-13 to adjust required disk space&#13;
 #&#13;
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #&#13;
 &#13;
+# Checks minimum version of the OS before upgrade (10.9.0)&#13;
+OSVERSIONMAJOR=$(sw_vers -buildVersion | cut -c 1-2)&#13;
 &#13;
 # Minimum RAM and Disk Space required (4GB and 45GB default. Note that REQUIREDMINIMUMSPACE must be set to an integer)&#13;
-# According to https://support.apple.com/en-us/HT211238 the minimum space requirement for Big Sur is 33.5GB if you're coming from Catalina, it can go up to 44.5GB if coming from an older version&#13;
+# According to https://support.apple.com/en-us/HT211238 the minimum space requirement for Big Sur is 35.5GB if you're coming from Catalina, it can go up to 44.5GB if coming from an older version&#13;
 # This value is acconting for the required space and the size of the installer (almost 13GB)&#13;
 REQUIREDMINIMUMRAM=4&#13;
-REQUIREDMINIMUMSPACE=60&#13;
 &#13;
+if [[ "$OSVERSIONMAJOR" -eq 19 ]]; then&#13;
+	# For Catalina required space is 12.3GB for the installer and 35.5GB for required disk space for installation which equals to 47.8GB, 50GB is giving a bit of extra free space for safety&#13;
+	REQUIREDMINIMUMSPACE=50&#13;
+else&#13;
+	# For pre-Catalina required space is 12.3GB for the installer and 44.5GB for required disk space for installation which equals to 56.8GB, 60GB is giving a bit of extra free space for safety&#13;
+	REQUIREDMINIMUMSPACE=60&#13;
+fi&#13;
 &#13;
 #########################################################################################&#13;
 ############### DO NOT CHANGE UNLESS NEEDED&#13;
@@ -85,9 +96,6 @@ COMPATIBILITY="False"&#13;
 #########################################################################################&#13;
 ############### Let's go!&#13;
 #########################################################################################&#13;
-&#13;
-# Checks minimum version of the OS before upgrade (10.9.0)&#13;
-OSVERSIONMAJOR=$(sw_vers -buildVersion | cut -c 1-2)&#13;
 &#13;
 # Checks if computer meets pre-requisites for Big Sur&#13;
 if [[ "$OSVERSIONMAJOR" -ge 13 &amp;&amp; "$OSVERSIONMAJOR" -le 19 ]]; then&#13;
@@ -130,5 +138,6 @@ if [[ "$OSVERSIONMAJOR" -ge 13 &amp;&amp; "$OSVERSIONMAJOR" -le 19 ]]; then&#13;
 else&#13;
 	echo "&lt;result&gt;$COMPATIBILITY&lt;/result&gt;"&#13;
 	exit $?&#13;
-fi</scriptContentsMac>
+fi&#13;
+</scriptContentsMac>
 </extensionAttribute>

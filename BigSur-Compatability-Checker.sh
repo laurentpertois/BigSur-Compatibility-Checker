@@ -42,7 +42,9 @@
 # These last 2 requirements can be modified in the first 2 variables (MINIMUMRAM
 # and MINIMUMSPACE).
 # 	- REQUIREDMINIMUMRAM: minimum RAM required, in GB
-# 	- REQUIREDMINIMUMSPACE: minimum disk space available, in GB
+# 	- REQUIREDMINIMUMSPACE: minimum disk space available, in GB. Big Sur has different
+#							requirements depending on the OS from which you update
+#							Adjust to your needs, lines 79 (Catalina) or 82 (pre-Catalina) 
 #
 #
 # Mac Hardware Requirements and equivalent as minimum Model Identifier
@@ -60,15 +62,25 @@
 # Written by: Laurent Pertois | Senior Professional Services Engineer | Jamf
 #
 # Created On: 2020-07-23
+# Modified ON: 2020-11-13 to adjust required disk space
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+# Checks minimum version of the OS before upgrade (10.9.0)
+OSVERSIONMAJOR=$(sw_vers -buildVersion | cut -c 1-2)
 
 # Minimum RAM and Disk Space required (4GB and 45GB default. Note that REQUIREDMINIMUMSPACE must be set to an integer)
-# According to https://support.apple.com/en-us/HT211238 the minimum space requirement for Big Sur is 33.5GB if you're coming from Catalina, it can go up to 44.5GB if coming from an older version
+# According to https://support.apple.com/en-us/HT211238 the minimum space requirement for Big Sur is 35.5GB if you're coming from Catalina, it can go up to 44.5GB if coming from an older version
 # This value is acconting for the required space and the size of the installer (almost 13GB)
 REQUIREDMINIMUMRAM=4
-REQUIREDMINIMUMSPACE=60
+
+if [[ "$OSVERSIONMAJOR" -eq 19 ]]; then
+	# For Catalina required space is 12.3GB for the installer and 35.5GB for required disk space for installation which equals to 47.8GB, 50GB is giving a bit of extra free space for safety
+	REQUIREDMINIMUMSPACE=50
+else
+	# For pre-Catalina required space is 12.3GB for the installer and 44.5GB for required disk space for installation which equals to 56.8GB, 60GB is giving a bit of extra free space for safety
+	REQUIREDMINIMUMSPACE=60
+fi
 
 #########################################################################################
 ############### DO NOT CHANGE UNLESS NEEDED
@@ -80,9 +92,6 @@ COMPATIBILITY="False"
 #########################################################################################
 ############### Let's go!
 #########################################################################################
-
-# Checks minimum version of the OS before upgrade (10.9.0)
-OSVERSIONMAJOR=$(sw_vers -buildVersion | cut -c 1-2)
 
 # Checks if computer meets pre-requisites for Big Sur
 if [[ "$OSVERSIONMAJOR" -ge 13 && "$OSVERSIONMAJOR" -le 19 ]]; then
