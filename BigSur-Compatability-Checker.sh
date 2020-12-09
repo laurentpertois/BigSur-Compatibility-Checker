@@ -74,7 +74,7 @@ OSVERSIONMAJOR=$(sw_vers -buildVersion | cut -c 1-2)
 # This value is acconting for the required space and the size of the installer (almost 13GB)
 REQUIREDMINIMUMRAM=4
 
-if [[ "$OSVERSIONMAJOR" -eq 16 ]]; then
+if [[ "$OSVERSIONMAJOR" -ge 16 ]]; then
 	# For Sierra and higher required space is 12.3GB for the installer and 35.5GB for required disk space for installation which equals to 47.8GB, 50GB is giving a bit of extra free space for safety
 	REQUIREDMINIMUMSPACE=50
 else
