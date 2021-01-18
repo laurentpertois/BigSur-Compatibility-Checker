@@ -115,7 +115,7 @@ if [[ "$OSVERSIONMAJOR" -ge 13 &amp;&amp; "$OSVERSIONMAJOR" -le 19 ]]; then&#13;
 	MEMORYINSTALLED=$(/usr/sbin/sysctl -n hw.memsize)&#13;
 &#13;
 	# Gets free space on the boot drive&#13;
-	FREESPACE=$(diskutil info / | awk -F'[()]' '/Free Space|Available Space/ {print $2}' | sed -e 's/\ Bytes//')&#13;
+	FREESPACE=$(diskutil info / | awk -F '[()]' '/Free Space|Available Space/ {print $2}' | sed -e 's/\ Bytes//')&#13;
 &#13;
 	# Checks if computer meets pre-requisites for Big Sur&#13;
 	if [[ "$MODELNAME" == "iMac" &amp;&amp; "$MODELVERSION" -ge 144 &amp;&amp; "$MEMORYINSTALLED" -ge "$MINIMUMRAM" &amp;&amp; "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then&#13;
