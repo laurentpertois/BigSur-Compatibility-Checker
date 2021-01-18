@@ -62,7 +62,8 @@
 # Written by: Laurent Pertois | Senior Professional Services Engineer | Jamf
 #
 # Created On: 2020-07-23
-# Modified ON: 2020-11-13 to adjust required disk space
+# Modified On: 2020-11-13 to adjust required disk space
+# Modified On: 2021-01-19 to fix an issue with MacBook Pro models (basically they were all true)
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -125,7 +126,7 @@ if [[ "$OSVERSIONMAJOR" -ge 13 && "$OSVERSIONMAJOR" -le 19 ]]; then
 	    COMPATIBILITY="True"
 	elif [[ "$MODELNAME" == "MacBookAir" && "$MODELVERSION" -ge 6 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
 	    COMPATIBILITY="True"
-	elif [[ "$MODELNAME" == "MacBookPro" && "$MODELVERSION" -ge 11 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
+	elif [[ "$MODELNAME" == "MacBookPro" && "$MODELVERSION" -ge 110 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
 	    COMPATIBILITY="True"
 	fi
 	# Outputs result
