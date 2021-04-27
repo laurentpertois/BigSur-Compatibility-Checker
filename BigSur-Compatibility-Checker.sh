@@ -116,15 +116,15 @@ if [[ "$OSVERSIONMAJOR" -ge 13 && "$OSVERSIONMAJOR" -le 19 ]]; then
 	# Checks if computer meets pre-requisites for Big Sur
 	if [[ "$MODELNAME" == "iMac" && "$MODELVERSION" -ge 144 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
 		COMPATIBILITY="True"
-	elif [[ "$MODELNAME" == "iMacPro" && "$MODELVERSION" -ge 1 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
+	elif [[ "$MODELNAME" == "iMacPro" && "$MODELVERSION" -ge 10 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
 		COMPATIBILITY="True"
-	elif [[ "$MODELNAME" == "Macmini" && "$MODELVERSION" -ge 7 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
+	elif [[ "$MODELNAME" == "Macmini" && "$MODELVERSION" -ge 70 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
 		COMPATIBILITY="True"
-	elif [[ "$MODELNAME" == "MacPro" && "$MODELVERSION" -ge 6 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
+	elif [[ "$MODELNAME" == "MacPro" && "$MODELVERSION" -ge 60 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
 	    COMPATIBILITY="True"
-	elif [[ "$MODELNAME" == "MacBook" && "$MODELVERSION" -ge 8 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
+	elif [[ "$MODELNAME" == "MacBook" && "$MODELVERSION" -ge 80 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
 	    COMPATIBILITY="True"
-	elif [[ "$MODELNAME" == "MacBookAir" && "$MODELVERSION" -ge 6 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
+	elif [[ "$MODELNAME" == "MacBookAir" && "$MODELVERSION" -ge 60 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
 	    COMPATIBILITY="True"
 	elif [[ "$MODELNAME" == "MacBookPro" && "$MODELVERSION" -ge 110 && "$MEMORYINSTALLED" -ge "$MINIMUMRAM" && "$FREESPACE" -ge "$MINIMUMSPACE" ]]; then
 	    COMPATIBILITY="True"
