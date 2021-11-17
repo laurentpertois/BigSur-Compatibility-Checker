@@ -29,6 +29,16 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# 
+# This script is published here:
+# https://github.com/laurentpertois/BigSur-Compatibility-Checker
+#
+# Other scripts and resources available here:
+# https://github.com/laurentpertois?tab=repositories
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 # This script was designed to be used as an Extension Attribute to ensure specific
 # requirements have been met to deploy macOS Big Sur.
