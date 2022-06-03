@@ -23,6 +23,10 @@ These last 2 requirements can be modified in the first 2 variables (`MINIMUMRAM`
 
 Default compatibility is set to False if no test pass (variable `COMPATIBILITY`)
 
+## Exceptions
+
+The extension attribute will also display false for a computer that is compatible but already running Big Sur.
+
 ## Installation
 
 Copy the content of the script (`.sh` file) to a new Computer Extension Attribute or just download the existing Extension Attribute (`.xml`) file and upload it to the Computer Extension Attributes of your Jamf Pro server.
